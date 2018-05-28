@@ -167,6 +167,8 @@ public class MainActivity extends AppCompatActivity implements
 
             // TODO (1) Create a String member variable called mGithubJson that will store the raw JSON
 
+            String mGithubJsonString;
+
             @Override
             protected void onStartLoading() {
 
@@ -182,7 +184,13 @@ public class MainActivity extends AppCompatActivity implements
                 mLoadingIndicator.setVisibility(View.VISIBLE);
 
                 // TODO (2) If mGithubJson is not null, deliver that result. Otherwise, force a load
-                forceLoad();
+
+                if(mGithubJsonString != null){
+                    deliverResult(mGithubJsonString);
+                }else {
+                    forceLoad();
+                }
+
             }
 
             @Override
@@ -208,6 +216,13 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             // TODO (3) Override deliverResult and store the data in mGithubJson
+
+            @Override
+            public void deliverResult( String gitHubJson){
+
+                mGithubJsonString = gitHubJson;
+                super.deliverResult(gitHubJson);
+            }
             // TODO (4) Call super.deliverResult after storing the data
         };
     }
