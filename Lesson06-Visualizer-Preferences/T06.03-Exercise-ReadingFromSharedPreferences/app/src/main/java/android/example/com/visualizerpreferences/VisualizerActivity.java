@@ -55,7 +55,7 @@ public class VisualizerActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mVisualizerView.setShowBass(sharedPreferences.getBoolean("show_bass", true));
         // TODO (3) Get the value of the show_bass checkbox preference and use it to call setShowBass
-        mVisualizerView.setShowBass(true);
+
         mVisualizerView.setShowMid(true);
         mVisualizerView.setShowTreble(true);
         mVisualizerView.setMinSizeScale(1);
